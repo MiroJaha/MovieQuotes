@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CCAutocomplete
 
 class MoviesViewController: UIViewController {
     
@@ -109,7 +108,6 @@ extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = collectionView.bounds.width / 2.0 - 10
-        
         return CGSize(width: height, height: height)
     }
     
@@ -137,5 +135,19 @@ extension MoviesViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.searchTextField.isHighlighted = false
+    }
+    
+    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
+        let autoCompleteViewController = AutoComleteViewController()
+        autoCompleteViewController.autoComleteDelegate = self
+        self.present(autoCompleteViewController, animated: true, completion: nil)
+    }
+}
+
+extension MoviesViewController: AutoCompleteDelegate {
+    func autoCompleteSelected(selectedName name: String) {
+        searchBar.text = name
+        search = name
+        gettingDataFromAPI()
     }
 }

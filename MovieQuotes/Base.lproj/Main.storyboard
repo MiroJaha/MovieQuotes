@@ -32,7 +32,7 @@
                                 </scopeButtonTitles>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sUE-B1-xan">
-                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="drf-rC-d3G">
                                     <size key="itemSize" width="128" height="128"/>
@@ -85,7 +85,7 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="DNU-od-Ofu" secondAttribute="trailing" constant="-20" id="EQi-UE-pDe"/>
                             <constraint firstItem="N5E-nl-uf8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="PyQ-8W-xEd"/>
-                            <constraint firstItem="sUE-B1-xan" firstAttribute="top" secondItem="N5E-nl-uf8" secondAttribute="bottom" id="Rva-Ya-580"/>
+                            <constraint firstItem="sUE-B1-xan" firstAttribute="top" secondItem="N5E-nl-uf8" secondAttribute="bottom" constant="10" id="Rva-Ya-580"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sUE-B1-xan" secondAttribute="trailing" id="TVP-Yf-hxZ"/>
                             <constraint firstAttribute="bottomMargin" secondItem="DNU-od-Ofu" secondAttribute="bottom" constant="-40" id="aZf-l7-g2k"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sUE-B1-xan" secondAttribute="bottom" id="b6y-eI-ZMp"/>
