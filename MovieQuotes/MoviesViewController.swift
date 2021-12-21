@@ -11,7 +11,7 @@ import CCAutocomplete
 class MoviesViewController: UIViewController {
     
     private let key = "ab63c21c51099016696ec8784807ecda"
-    var search = "die hard"
+    var search = ""
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var moviesCollcetionView: UICollectionView!
@@ -23,7 +23,7 @@ class MoviesViewController: UIViewController {
         super.viewDidLoad()
         moviesCollcetionView.dataSource = self
         moviesCollcetionView.delegate = self
-        gettingDataFromAPI()
+        searchBar.delegate = self
     }
     
     func gettingDataFromAPI(){
@@ -50,6 +50,30 @@ class MoviesViewController: UIViewController {
             }
         })
         task.resume()
+        
+    }
+    
+    func gettingMoviesImages() {
+        for moviesDetails in moviesDetailsList {
+            guard let moviePosterUrl = moviesDetails.posterPath else { continue }
+            guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(moviePosterUrl)") else { continue }
+            // create a URLSession to handle the request tasks
+            let session = URLSession.shared
+            // create a "data task" to make the request and run completion handler
+            let task = session.dataTask(with: url, completionHandler: {
+                data, response, error in
+                guard let data = data else {
+                    return
+                }
+                let image = UIImage(data: data)
+                self.moviesImageList[moviesDetails.id] = image
+                
+                DispatchQueue.main.async {
+                    self.moviesCollcetionView.reloadData()
+                }
+            })
+            task.resume()
+        }
     }
     
     func MovieImage(movieID: Int) -> UIImage {
@@ -73,14 +97,30 @@ extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath)
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! MovieCustomCollectionViewCell
+        cell.movieNameLabel.text = moviesDetailsList[indexPath.row].title
+        cell.movieImageView.image = MovieImage(movieID: moviesDetailsList[indexPath.row].id)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let movieDetailsViewController = MovieDetailsViewController()
         movieDetailsViewController.movieDetailsLabel.text = moviesDetailsList[indexPath.row].overview
+        movieDetailsViewController.movieImageView.image = MovieImage(movieID: moviesDetailsList[indexPath.row].id)
         self.present(movieDetailsViewController, animated: true, completion: nil)
+    }
+}
+
+extension MoviesViewController: UISearchBarDelegate {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if let newSearch = searchBar.text {
+            search = newSearch
+            gettingDataFromAPI()
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.focusEffect = .none
     }
 }

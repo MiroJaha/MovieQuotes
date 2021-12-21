@@ -91,7 +91,7 @@
 		8E51A02F9B6AF9C3A85ADDD377A2584F /* Pods-MovieQuotes-MovieQuotesUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MovieQuotes-MovieQuotesUITests-Info.plist"; sourceTree = "<group>"; };
 		97FA1D5CD90C80253BA40F2158A2BD69 /* Pods-MovieQuotes-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MovieQuotes-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9983947A52D9A838315E339CCEA45627 /* TableViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableViewDelegate.swift; path = Autocomplete/AutoComplete/TableViewDelegate.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A4D3C7876C657C59B1CF7D024F79FCAB /* Pods-MovieQuotes-MovieQuotesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MovieQuotes-MovieQuotesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B39856D9EB48FA1C0610FB269F55C3DD /* CCAutocomplete.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CCAutocomplete.modulemap; sourceTree = "<group>"; };
 		B6FC0D20FD00DCD15566BF0FB182CDD4 /* AutoCompleteCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AutoCompleteCell.swift; path = Autocomplete/AutoComplete/AutoCompleteCell.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		C3A0D15CC44187DBA3F9C13F93EDC044 /* Pods-MovieQuotes-MovieQuotesUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MovieQuotes-MovieQuotesUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		DBCDF2FF0DFAC1FC1CB1EC81087F659A /* Autocomplete.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Autocomplete.swift; path = Autocomplete/AutoComplete/Autocomplete.swift; sourceTree = "<group>"; };
 		E187C62A5B5F23DEEA7FDB6023092976 /* Pods-MovieQuotesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MovieQuotesTests.debug.xcconfig"; sourceTree = "<group>"; };
-		EA078D97AEB8479343D4CEA9FA629FEE /* CCAutocomplete */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CCAutocomplete; path = CCAutocomplete.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA078D97AEB8479343D4CEA9FA629FEE /* CCAutocomplete.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CCAutocomplete.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1454219B07D8F5976A93254D8DF6759 /* Pods-MovieQuotesTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MovieQuotesTests-Info.plist"; sourceTree = "<group>"; };
 		F8B46E3143B70B817A02399B076FB2B3 /* Pods-MovieQuotes-MovieQuotesUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MovieQuotes-MovieQuotesUITests-frameworks.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -247,7 +247,7 @@
 		D96B1DAF94BEAF6C9F16DBFE60827441 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EA078D97AEB8479343D4CEA9FA629FEE /* CCAutocomplete */,
+				EA078D97AEB8479343D4CEA9FA629FEE /* CCAutocomplete.framework */,
 				49B85F36FBBD34150539FCF9321BD2C0 /* Pods-MovieQuotes */,
 				141BFA9D0C2DF3E8832DAC3077703255 /* Pods-MovieQuotes-MovieQuotesUITests */,
 				47D81D1C8CCFCBCB3A096949BA458D2E /* Pods-MovieQuotesTests */,
@@ -268,7 +268,6 @@
 				443E53DA9801B007DF9D74FCCE5B2607 /* Resources */,
 				856E7D8C6BFE5A596EE5666FAC315764 /* Support Files */,
 			);
-			name = CCAutocomplete;
 			path = CCAutocomplete;
 			sourceTree = "<group>";
 		};
@@ -341,7 +340,7 @@
 			);
 			name = CCAutocomplete;
 			productName = CCAutocomplete;
-			productReference = EA078D97AEB8479343D4CEA9FA629FEE /* CCAutocomplete */;
+			productReference = EA078D97AEB8479343D4CEA9FA629FEE /* CCAutocomplete.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		82970EBB19FA9E0DEE05B6D20433EC39 /* Pods-MovieQuotesTests */ = {
@@ -408,7 +407,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					1F194AE9E61D410EA7BFC05694B53130 = {
+						LastSwiftMigration = 1320;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -684,7 +688,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CCAutocomplete/CCAutocomplete-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CCAutocomplete/CCAutocomplete-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -696,7 +700,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -831,7 +835,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CCAutocomplete/CCAutocomplete-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CCAutocomplete/CCAutocomplete-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -843,7 +847,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
