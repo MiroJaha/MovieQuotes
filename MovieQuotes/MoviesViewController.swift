@@ -39,21 +39,21 @@ class MoviesViewController: UIViewController {
             let decoder = JSONDecoder()
             do {
                 let decoded = try decoder.decode(MoviesAPIModel.self, from: data!)
-                
+
                 self.moviesDetailsList = decoded.results
-                
+
                 DispatchQueue.main.async {
-                    self.moviesCollcetionView.reloadData()
+                    self.gettingMoviesImages()
                 }
             } catch {
                 print("Failed to decode JSON \(error)")
             }
         })
         task.resume()
-        
     }
-    
+
     func gettingMoviesImages() {
+        moviesImageList.removeAll()
         for moviesDetails in moviesDetailsList {
             guard let moviePosterUrl = moviesDetails.posterPath else { continue }
             guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(moviePosterUrl)") else { continue }
@@ -66,14 +66,14 @@ class MoviesViewController: UIViewController {
                     return
                 }
                 let image = UIImage(data: data)
-                self.moviesImageList[moviesDetails.id] = image
-                
                 DispatchQueue.main.async {
+                    self.moviesImageList[moviesDetails.id] = image
                     self.moviesCollcetionView.reloadData()
                 }
             })
             task.resume()
         }
+        self.moviesCollcetionView.reloadData()
     }
     
     func MovieImage(movieID: Int) -> UIImage {
@@ -82,16 +82,13 @@ class MoviesViewController: UIViewController {
                 return movieImage.value
             }
         }
-        if let filePath = Bundle.main.path(forResource: "defaultImage", ofType: "jpeg"),
-           let defaultImage = UIImage(contentsOfFile: filePath) {
-            return defaultImage
-        }
-        let errorImage = UIImage()
-        return errorImage
+        
+        guard let defaultImage = UIImage(named: "defaultImage") else { return UIImage() }
+        return defaultImage
     }
 }
 
-extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return moviesDetailsList.count
     }
@@ -109,10 +106,28 @@ extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDele
         movieDetailsViewController.movieImageView.image = MovieImage(movieID: moviesDetailsList[indexPath.row].id)
         self.present(movieDetailsViewController, animated: true, completion: nil)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let height = collectionView.bounds.width / 2.0 - 10
+        
+        return CGSize(width: height, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 4
+    }
 }
 
 extension MoviesViewController: UISearchBarDelegate {
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let newSearch = searchBar.text {
             search = newSearch
             gettingDataFromAPI()
@@ -121,6 +136,6 @@ extension MoviesViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
-        searchBar.focusEffect = .none
+        searchBar.searchTextField.isHighlighted = false
     }
 }

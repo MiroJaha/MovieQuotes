@@ -31,10 +31,10 @@
                                     <string>Title</string>
                                 </scopeButtonTitles>
                             </searchBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sUE-B1-xan">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sUE-B1-xan">
                                 <rect key="frame" x="0.0" y="94" width="414" height="768"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nki-vy-t7e">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="drf-rC-d3G">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -49,25 +49,24 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cwh-LU-9j4">
-                                                    <rect key="frame" x="0.0" y="25" width="128" height="103"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TBR-Xw-RPD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="25"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="NSV-N8-j2V"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="TBR-Xw-RPD" secondAttribute="bottom" id="26o-PF-bXq"/>
                                                 <constraint firstAttribute="trailing" secondItem="TBR-Xw-RPD" secondAttribute="trailing" id="3kI-KK-roZ"/>
                                                 <constraint firstAttribute="bottom" secondItem="Cwh-LU-9j4" secondAttribute="bottom" id="Vln-Zk-zGX"/>
                                                 <constraint firstItem="TBR-Xw-RPD" firstAttribute="leading" secondItem="dbA-am-ydD" secondAttribute="leading" id="ZBj-kh-gmn"/>
                                                 <constraint firstItem="Cwh-LU-9j4" firstAttribute="leading" secondItem="dbA-am-ydD" secondAttribute="leading" id="akO-ee-rJR"/>
-                                                <constraint firstItem="Cwh-LU-9j4" firstAttribute="top" secondItem="TBR-Xw-RPD" secondAttribute="bottom" id="gt8-H7-VEQ"/>
+                                                <constraint firstItem="Cwh-LU-9j4" firstAttribute="top" secondItem="dbA-am-ydD" secondAttribute="top" id="gt8-H7-VEQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="Cwh-LU-9j4" secondAttribute="trailing" id="ivM-Yp-cp6"/>
                                                 <constraint firstItem="TBR-Xw-RPD" firstAttribute="top" secondItem="dbA-am-ydD" secondAttribute="top" id="k5g-fa-Sif"/>
                                             </constraints>

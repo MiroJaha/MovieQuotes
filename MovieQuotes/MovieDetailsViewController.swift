@@ -46,8 +46,8 @@ class MovieDetailsViewController: UIViewController {
         }
         
         NSLayoutConstraint.activate([
-            movieDetailsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            movieDetailsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            movieDetailsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 20),
+            movieDetailsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             movieDetailsLabel.topAnchor.constraint(equalTo: view.topAnchor),
             movieDetailsLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
