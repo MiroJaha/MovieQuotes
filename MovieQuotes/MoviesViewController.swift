@@ -72,7 +72,6 @@ class MoviesViewController: UIViewController {
             })
             task.resume()
         }
-        self.moviesCollcetionView.reloadData()
     }
     
     func MovieImage(movieID: Int) -> UIImage {
